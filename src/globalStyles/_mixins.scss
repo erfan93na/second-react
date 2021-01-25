@@ -3,4 +3,5 @@
     flex-direction:$dir;
     justify-content: $jc;
     align-items: $ai;
+    @content
 }

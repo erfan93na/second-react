@@ -1,0 +1,59 @@
+@import "../../../globalStyles/mixins";
+@import "../../../globalStyles/breakpoints";
+@import "../../../globalStyles/variables";
+
+
+
+
+.formInputHolder {
+  @include flex {
+    gap: 1rem;
+  }
+  * {
+    background-color: white;
+    height: $formRowHeight;
+  }
+
+  .iconHolder {
+    width: $formRowHeight;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    @include flex;
+    * {
+      color: $mainGreenColor;
+    }
+    @media (max-width:$brk-sm){
+        display:none;
+    }
+  }
+  
+  input {
+    width: 18rem;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    &:focus {
+      appearance: none;
+      outline: none;
+      border: none;
+    }
+    &[type="submit"] {
+      font: {
+        weight: bold;
+        size: 1.3rem;
+      }
+      color: $mainGreenColor;
+    }
+    &::placeholder {
+      opacity: 0.7;
+    }
+    @media(max-width:$brk-xs) {
+        width:70vw;
+    }
+  }
+}  
+  
+  

@@ -1,0 +1,9 @@
+@import "../../globalStyles/breakpoints";
+@import "../../globalStyles/variables";
+@import "../../globalStyles/mixins";
+.main {
+    @include flex {
+        flex-wrap:nowrap;
+    }
+
+}
