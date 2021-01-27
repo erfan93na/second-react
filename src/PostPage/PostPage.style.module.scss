@@ -1,0 +1,19 @@
+@import "../globalStyles/breakpoints";
+@import "../globalStyles/variables";
+@import "../globalStyles/mixins";
+.main {
+    overflow: hidden;
+    @include pagePadding;
+    padding-top:0
+
+}
+
+.bannerHolder {
+    @include bannerHolder($h:50vh)
+}
+
+
+img {
+width:100%;
+object-fit: cover;
+}

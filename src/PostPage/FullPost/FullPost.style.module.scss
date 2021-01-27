@@ -1,0 +1,29 @@
+@import "../../globalStyles/breakpoints";
+@import "../../globalStyles/variables";
+@import "../../globalStyles/mixins";
+
+.fullPost {
+  margin-bottom: 3rem;
+  padding:2.5rem 3rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  h1 {
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: rgb(218, 121, 121);
+    margin-bottom: 1.0rem;
+    @media (max-width: $brk-sm) {
+        padding: 0.7rem;
+      }
+  }
+
+  div {
+    text-align: justify;
+    font-weight: bold;
+    line-height: 1.8rem;
+  }
+  @media (max-width: $brk-sm) {
+    padding: 0.7rem;
+  }
+}

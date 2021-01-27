@@ -7,7 +7,7 @@ import styles from "./Login-style.module.scss";
 let allowedUsers = JSON.parse(localStorage.getItem("allowedUsers"));
 
 function Login(props) {
-    console.log(allowedUsers)
+  console.log(allowedUsers);
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
@@ -17,16 +17,15 @@ function Login(props) {
     let pass = passwordState;
     e.preventDefault();
     if (!user || !pass) setError("Both Fields Should Be Filled.");
-   else if (user.includes("@")) setError("Username Should Not Include @.");
-
-   else if (
+    else if (user.includes("@")) setError("Username Should Not Include @.");
+    else if (
       allowedUsers.find(
         (allowedUser) =>
           allowedUser.username === user && allowedUser.password === pass
       )
     ) {
-      localStorage.setItem("isLoggedIn","1");
-      props.history.push("/posts")
+      localStorage.setItem("isLoggedIn", "1");
+      props.history.push("/posts");
     } else {
       setError("Username or Password Not Found!");
     }
@@ -54,7 +53,7 @@ function Login(props) {
           <FormInput name="password" type="password" placeholder="Password" />
           <FormInput name="submit" type="submit" placeholder="Username" />
 
-          <ErrorMessage message={errorMessageState} setError={setError} />
+          <ErrorMessage message={errorMessageState} />
         </form>
       </FormContext.Provider>
     </div>
@@ -62,4 +61,4 @@ function Login(props) {
 }
 
 export const FormContext = React.createContext();
-export default withRouter(Login)
+export default withRouter(Login);
