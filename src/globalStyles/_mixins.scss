@@ -1,6 +1,29 @@
-@mixin flex($dir:row,$jc:center,$ai:center) {
-    display:flex;
-    flex-direction:$dir;
-    justify-content: $jc;
-    align-items: $ai;
+@mixin flex($dir: row, $jc: center, $ai: center) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ai;
+  @content;
+}
+
+@mixin pagePadding() {
+  padding: 3rem 10rem;
+  @media (max-width: $brk-sm) {
+    padding: 0.5rem;
+  }
+}
+
+@mixin bannerHolder($h) {
+  height: $h;
+  overflow: hidden;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: $brk-sm) {
+    height: 20vmax;
+  }
 }

@@ -1,0 +1,13 @@
+@import "../../globalStyles/breakpoints";
+@import "../../globalStyles/variables";
+@import "../../globalStyles/mixins";
+.main {
+background-color: rgb(236, 228, 228);
+    display:grid;
+    gap:1.5rem;
+grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+
+    
+@include pagePadding
+
+}
