@@ -1,0 +1,8 @@
+@import "../../misc/globalStyles/breakpoints";
+@import "../../misc/globalStyles/variables";
+@import "../../misc/globalStyles/mixins";
+
+.bannerHolder {
+ @include bannerHolder($h:35vh)
+    
+}

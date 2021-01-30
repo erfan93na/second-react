@@ -1,6 +1,6 @@
-@import "../globalStyles/breakpoints";
-@import "../globalStyles/variables";
-@import "../globalStyles/mixins";
+@import "../../misc/globalStyles/breakpoints";
+@import "../../misc/globalStyles/variables";
+@import "../../misc/globalStyles/mixins";
 .main {
     overflow: hidden;
     @include pagePadding;

@@ -1,7 +1,7 @@
 import { withRouter,Link } from "react-router-dom";
 import PostFooter from "../Post/PostFooter/PostFooter.js"
 import styles from "./Post-style.module.scss";
-import banner from "../../../images/banner.jpg";
+import banner from "../../../misc/images/banner.jpg";
 
 
 

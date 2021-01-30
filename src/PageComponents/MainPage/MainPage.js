@@ -1,5 +1,5 @@
-import Posts from "../Components/Posts/Posts.js"
-import mainBanner from "../images/mainBanner.jpg"
+import Posts from "../../Components/Posts/Posts.js"
+import mainBanner from "../../misc/images/mainBanner.jpg"
 import styles from "./MainPage.style.module.scss"
 
 const MainPage = () => {

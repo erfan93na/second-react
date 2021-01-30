@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import FullPost from "./FullPost/FullPost.js"
 import Comments from "./Comments/Comments.js"
-import postBanner from "../images/postBanner.jfif";
+import postBanner from "../../misc/images/postBanner.jfif"
 import styles from "./PostPage.style.module.scss"
 
 const PostPage = () => {
