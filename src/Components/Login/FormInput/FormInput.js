@@ -11,7 +11,6 @@ const FormInput = (props) => {
     const {userInfo,passInfo}=useContext(FormContext)
   const input = useRef();
   useEffect(() => {
-    console.log(input);
     if (props.name === "submit") input.current.value = "LOGIN";
   });
   useEffect(()=>{
@@ -32,7 +31,7 @@ const FormInput = (props) => {
     );
   return (
     <IconContext.Provider value={{ size: "1.5rem", style: { padding: 0 } }}>
-      <div class={styles.formInputHolder}>
+      <div className={styles.formInputHolder}>
         <div className={styles.iconHolder}>{icon}</div>
         <input type={props.type} placeholder={props.placeholder} ref={input} />
       </div>

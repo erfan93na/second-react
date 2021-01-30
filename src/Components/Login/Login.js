@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
+
 import FormInput from "./FormInput/FormInput.js";
 import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
 import styles from "./Login-style.module.scss";
@@ -7,10 +8,11 @@ import styles from "./Login-style.module.scss";
 let allowedUsers = JSON.parse(localStorage.getItem("allowedUsers"));
 
 function Login(props) {
-  console.log(allowedUsers);
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
+  const [loginState, setLogin] = useState(0);
+
 
   const handleSubmit = (e) => {
     let user = usernameState;
@@ -25,7 +27,7 @@ function Login(props) {
       )
     ) {
       localStorage.setItem("isLoggedIn", "1");
-      props.history.push("/posts");
+      setLogin(1)
     } else {
       setError("Username or Password Not Found!");
     }
@@ -35,8 +37,10 @@ function Login(props) {
     setError("");
   }, [usernameState, passwordState]);
 
-  return (
-    <div className={styles.main}>
+
+
+  return (loginState?<Redirect exact to="/"/>:
+    (<div className={styles.main}>
       <FormContext.Provider
         value={{
           userInfo: { usernameState, setUsername },
@@ -57,7 +61,7 @@ function Login(props) {
         </form>
       </FormContext.Provider>
     </div>
-  );
+  ))
 }
 
 export const FormContext = React.createContext();

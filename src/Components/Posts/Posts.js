@@ -21,7 +21,6 @@ const Posts = (props) => {
     setPosts(response.data.slice(0,20))
     });
   }, []);
- console.log(postsState)
 
   return  <div ref={ref} className={styles.main} >{postsState.map(post=><Post title={post.title} key={post.id} id={post.id} />)}</div>;
 };

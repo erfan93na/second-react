@@ -12,7 +12,7 @@ const Comments = (props) => {
       .then((response) => {
         setComments(response.data.map(comment=><Comment {...comment} key={comment.id} />));
       });
-  },[]);
+  });
   return <div>
     <b>{commentsList.length} Comments</b>
     {commentsList}</div>;
