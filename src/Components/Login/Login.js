@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import FormInput from "./FormInput/FormInput.js";
 import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
 import styles from "./Login-style.module.scss";
-
-let allowedUsers = JSON.parse(localStorage.getItem("allowedUsers"));
+// localStorage.setItem("allowedUsers",JSON.stringify([{username:"erfan",password:"1234"}]))
+let allowedUsers = [{ username: "erfan", password: "1234" }];
 
 function Login(props) {
-  console.log(allowedUsers);
+  let isLoggedIn = localStorage.getItem("isLoggedIn");
+
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
+  const [loginState, setLogin] = useState("1");
 
   const handleSubmit = (e) => {
+
     let user = usernameState;
     let pass = passwordState;
     e.preventDefault();
@@ -25,15 +28,25 @@ function Login(props) {
       )
     ) {
       localStorage.setItem("isLoggedIn", "1");
-      props.history.push("/posts");
+      setLogin("1")
     } else {
       setError("Username or Password Not Found!");
     }
   };
-
+  useEffect(() => {
+    console.log(isLoggedIn)
+if (isLoggedIn===null) {      localStorage.setItem("isLoggedIn", "0");
+console.log("hi")
+setLogin("0")}
+    
+  });
   useEffect(() => {
     setError("");
   }, [usernameState, passwordState]);
+
+  // if (loginState === "1") {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <div className={styles.main}>
