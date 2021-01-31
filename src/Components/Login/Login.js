@@ -5,12 +5,13 @@ import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
 import styles from "./Login-style.module.scss";
 // localStorage.setItem("allowedUsers",JSON.stringify([{username:"erfan",password:"1234"}]))
 let allowedUsers = [{ username: "erfan", password: "1234" }];
+const isLoggedIn= +localStorage.getItem("isLoggedIn");
 
 function Login(props) {
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
-  const [loginState, setLogin] = useState(0);
+  const [loginState, setLogin] = useState(isLoggedIn);
 
 
   const handleSubmit = (e) => {
