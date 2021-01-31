@@ -32,13 +32,7 @@ function Login(props) {
       setError("Username or Password Not Found!");
     }
   };
-  useEffect(() => {
-    console.log(isLoggedIn)
-if (isLoggedIn===null) {      localStorage.setItem("isLoggedIn", "0");
-console.log("hi")
-setLogin("0")}
-    
-  });
+ 
   useEffect(() => {
     setError("");
   }, [usernameState, passwordState]);

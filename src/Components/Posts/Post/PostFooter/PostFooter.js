@@ -6,8 +6,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const PostFooter = (props) => {
+  const source = axios.CancelToken.source()
   let [commentsCount,setCommentsCount]=useState("0")
-  useEffect(()=>{axios.get(`http://jsonplaceholder.typicode.com/posts/${props.id}/comments`).then(response=>setCommentsCount(response.data.length),[])
+  useEffect(()=>{axios.get(`http://jsonplaceholder.typicode.com/posts/${props.id}/comments`,{
+    cancelToken:source.token
+  }).then(response=>setCommentsCount(response.data.length),[]).catch(err=>err);
+  return ()=>{source.cancel("canceled request")}
 })
   return (
     <div className={styles.footer}>
