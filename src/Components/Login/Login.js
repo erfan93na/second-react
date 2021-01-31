@@ -7,12 +7,11 @@ import styles from "./Login-style.module.scss";
 let allowedUsers = [{ username: "erfan", password: "1234" }];
 
 function Login(props) {
-  let isLoggedIn = localStorage.getItem("isLoggedIn");
-
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
-  const [loginState, setLogin] = useState("1");
+  const [loginState, setLogin] = useState(0);
+
 
   const handleSubmit = (e) => {
 
@@ -28,7 +27,7 @@ function Login(props) {
       )
     ) {
       localStorage.setItem("isLoggedIn", "1");
-      setLogin("1")
+      setLogin(1)
     } else {
       setError("Username or Password Not Found!");
     }
@@ -44,12 +43,10 @@ setLogin("0")}
     setError("");
   }, [usernameState, passwordState]);
 
-  // if (loginState === "1") {
-  //   return <Redirect to="/" />;
-  // }
 
-  return (
-    <div className={styles.main}>
+
+  return (loginState?<Redirect exact to="/"/>:
+    (<div className={styles.main}>
       <FormContext.Provider
         value={{
           userInfo: { usernameState, setUsername },
@@ -70,7 +67,7 @@ setLogin("0")}
         </form>
       </FormContext.Provider>
     </div>
-  );
+  ))
 }
 
 export const FormContext = React.createContext();
