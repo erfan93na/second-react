@@ -18,6 +18,7 @@ function Login(props) {
     let user = usernameState;
     let pass = passwordState;
     e.preventDefault();
+    console.log(user , pass)
     if (!user || !pass) setError("Both Fields Should Be Filled.");
     else if (user.includes("@")) setError("Username Should Not Include @.");
     else if (

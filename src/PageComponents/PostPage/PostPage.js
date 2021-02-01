@@ -11,7 +11,7 @@ const PostPage = () => {
     let { id } = useParams();
     useEffect(() => {
     axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`).then(response=>{setFullPost(response.data)});
-  });
+  },[id]);
 
     return ( 
         <div className={styles.main}>

@@ -10,17 +10,20 @@ import { IconContext } from "react-icons";
 const FormInput = (props) => {
     const {userInfo,passInfo}=useContext(FormContext)
   const input = useRef();
+  console.log("hello")
+
   useEffect(() => {
+    console.log("ho")
     if (props.name === "submit") input.current.value = "LOGIN";
-  });
-  useEffect(()=>{
-      if (props.name==="username"){ input.current.oninput=(e)=>{userInfo.setUsername(e.target.value)};
+    if (props.name==="password"){ input.current.onchange=(e)=>{passInfo.setPassword(e.target.value)};
+    input.current.value=passInfo.passwordState === "" ? "" :passInfo.passwordState}
+    if (props.name==="username"){ input.current.onchange=(e)=>{userInfo.setUsername(e.target.value)};
     input.current.value=userInfo.usernameState}
-  })
-  useEffect(()=>{
-    if (props.name==="password"){ input.current.oninput=(e)=>{passInfo.setPassword(e.target.value)};
-  input.current.value=passInfo.passwordState === "" ? "" :passInfo.passwordState}
-})
+  });
+   
+
+
+
   const icon =
     props.name === "username" ? (
       <FaUser />
