@@ -19,7 +19,7 @@ function App() {
       <Switch>
         <Route path="/login" component={Login} />
 
-        <Route path="/posts/:id" component={PostPage} />
+        <PrivateRoute path="/posts/:id" component={PostPage} />
         <PrivateRoute  exact path="/" component={MainPage} />
       </Switch>
     </Router>

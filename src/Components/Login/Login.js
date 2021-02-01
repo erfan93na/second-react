@@ -8,14 +8,13 @@ let allowedUsers = [{ username: "erfan", password: "1234" }];
 const isLoggedIn= +localStorage.getItem("isLoggedIn");
 
 function Login(props) {
+  const prevRoute=props.location.state
   const [usernameState, setUsername] = useState("");
   const [passwordState, setPassword] = useState("");
   const [errorMessageState, setError] = useState("");
   const [loginState, setLogin] = useState(isLoggedIn);
 
-
   const handleSubmit = (e) => {
-
     let user = usernameState;
     let pass = passwordState;
     e.preventDefault();
@@ -39,8 +38,7 @@ function Login(props) {
   }, [usernameState, passwordState]);
 
 
-
-  return (loginState?<Redirect exact to="/"/>:
+  return (loginState?<Redirect exact to={prevRoute}/>:
     (<div className={styles.main}>
       <FormContext.Provider
         value={{
