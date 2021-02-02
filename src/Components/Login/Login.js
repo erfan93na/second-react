@@ -39,7 +39,7 @@ function Login(props) {
   }, [usernameState, passwordState]);
 
 
-  return (loginState?<Redirect exact to={prevRoute}/>:
+  return (loginState?<Redirect exact to={prevRoute?prevRoute:"/"}/>:
     (<div className={styles.main}>
       <FormContext.Provider
         value={{
@@ -57,7 +57,7 @@ function Login(props) {
           <FormInput name="password" type="password" placeholder="Password" />
           <FormInput name="submit" type="submit" placeholder="Username" />
 
-          <ErrorMessage message={errorMessageState} />
+          {errorMessageState?<ErrorMessage message={errorMessageState}/>:null}
         </form>
       </FormContext.Provider>
     </div>
