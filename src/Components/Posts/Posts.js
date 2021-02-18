@@ -6,10 +6,10 @@ const Posts = (props) => {
 
   const [postsState, setPosts] = useState([]);
   const ref=useRef(null)
-  useEffect(()=>{
-      ref.current.onscroll=()=>{   this.style.backgroundColor="blue";   console.log(4)
-      }
-  })
+  // useEffect(()=>{
+  //     ref.current.onscroll=()=>{   this.style.backgroundColor="blue";   console.log(4)
+  //     }
+  // })
 //   const handleScroll=()=>{
 //       if (document.documentElement.scrollHeight-(document.documentElement.clientHeight
 // +window.pageYOffset)>500        ) alert("hi")
